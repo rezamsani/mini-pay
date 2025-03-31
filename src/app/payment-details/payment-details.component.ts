@@ -20,6 +20,9 @@ export class PaymentDetailsComponent implements OnInit {
     })
     this.paymentService.getPaymentDetails();
   }
+  currentPaymentHandler(paymentDetail: PaymentDetail){
+      this.paymentService.curretPaymentDetal.next({...paymentDetail});
+  }
 
 }
 

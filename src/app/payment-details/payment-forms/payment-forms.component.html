@@ -1,5 +1,6 @@
 <form autocomplete="off" #form="ngForm" (ngSubmit)="onSubmit(form)">
   <div class="form-group">
+    <input type="hidden" name="paymentDetailId" [(ngModel)]="paymentDetailForm.paymentDetailId">
     <label for="ownerName">مالک کارت</label>
     <input
       type="text"
@@ -7,7 +8,7 @@
       id="ownerName"
       placeholder="نام و نام خانوادگی"
       name="ownerName"
-      ngModel
+      [(ngModel)]="paymentDetailForm.ownerName"
       required
       #ownerName="ngModel"
       [class.invalid]="ownerName.invalid && ownerName.touched"
@@ -23,7 +24,7 @@
       name="cardNumber"
       maxlength="16"
       minlength="16"
-      ngModel
+      [(ngModel)]="paymentDetailForm.cardNumber"
       required
       #cardNumber="ngModel"
       [class.invalid]="cardNumber.invalid && cardNumber.touched"
@@ -40,7 +41,7 @@
         name="securityCode"
         minlength="3"
         maxlength="3"
-        ngModel
+        [(ngModel)]="paymentDetailForm.securityCode"
         required
         #securityCode="ngModel"
         [class.invalid]="securityCode.invalid && securityCode.touched"
@@ -56,7 +57,7 @@
         name="expireDate"
         minlength="5"
         maxlength="5"
-        ngModel
+        [(ngModel)]="paymentDetailForm.expireDate"
         required
         #expireDate="ngModel"
         [class.invalid]="expireDate.invalid && expireDate.touched"
