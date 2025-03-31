@@ -4,7 +4,7 @@ import { PaymentDetail } from '../../services/payment.model';
 import { PaymentService } from '../../services/payment.service';
 @Component({
   selector: 'app-payment-forms',
-  standalone : true,
+  standalone: true,
   imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './payment-forms.component.html',
   styleUrl: './payment-forms.component.css'
@@ -13,14 +13,9 @@ export class PaymentFormsComponent {
   constructor(private paymentService: PaymentService) {
 
   }
-    onSubmit(form:NgForm){
+  onSubmit(form: NgForm) {
     const paymentInfo: PaymentDetail = form.value;
-    this.paymentService.postPaymnetDetails(paymentInfo)
-    .subscribe({
-      next: (res) => console.log('Payment submitted successfully ' + res),
-      error: (error) => console.error('Error submitting payment', error)
-    }
-      
-    );
+    this.paymentService.postPaymentDetails(paymentInfo);
+    form.reset();
   }
 }

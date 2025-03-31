@@ -6,14 +6,14 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 
 // 🔹 سایر سرویس‌ها و مسیرها
 import { PaymentService } from './services/payment.service';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
      provideRouter(routes),
      provideClientHydration(withEventReplay()),
-     provideHttpClient(),  // ← اضافه کردن این خط
+     provideHttpClient(withFetch()), // استفاده از Fetch API برای بهبود SSR
 
     
 
