@@ -1,6 +1,6 @@
 export interface PaymentDetail {
 
-    paymentDetailId: number;
+    paymentDetailId?: number;
     ownerName: string;
     cardNumber: string;
     expireDate: string;

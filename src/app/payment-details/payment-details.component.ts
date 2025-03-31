@@ -7,7 +7,9 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-payment-details',
   //standalone: true,
-  imports: [PaymentFormsComponent, CommonModule],
+  imports: [PaymentFormsComponent,
+     CommonModule
+    ],
   templateUrl: './payment-details.component.html',
   styleUrl: './payment-details.component.css'
 })
@@ -23,6 +25,9 @@ export class PaymentDetailsComponent implements OnInit {
   currentPaymentHandler(paymentDetail: PaymentDetail){
       this.paymentService.curretPaymentDetal.next({...paymentDetail});
   }
-
+  onDelete(event:Event,paymentId:number){
+    event.stopPropagation();
+    this.paymentService.deletePaymentDetail(paymentId);
+  }
 }
 

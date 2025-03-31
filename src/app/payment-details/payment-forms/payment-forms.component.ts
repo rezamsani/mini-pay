@@ -27,7 +27,13 @@ export class PaymentFormsComponent implements OnInit {
   }
   onSubmit(form: NgForm) {
     const paymentInfo: PaymentDetail = form.value;
-    this.paymentService.postPaymentDetails(paymentInfo);
+    if(paymentInfo.paymentDetailId == 0 || paymentInfo.paymentDetailId == null){
+      delete paymentInfo.paymentDetailId;
+      this.paymentService.postPaymentDetail(paymentInfo);
+    }
+    else{
+      this.paymentService.putPaymentDetail(paymentInfo);
+    }
     form.reset();
   }
 }
